@@ -38,8 +38,12 @@ namespace ExCSS
 
             var tokens = _lexer.Tokens;
 
+            //int n = 0;
             foreach (var token in tokens)
             {
+                //n++;
+                //if (n > 1290)
+                    //Console.WriteLine ();
                 if (ParseTokenBlock(token))
                 {
                     continue;
