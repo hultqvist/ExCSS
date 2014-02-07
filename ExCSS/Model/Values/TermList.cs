@@ -17,22 +17,26 @@ namespace ExCSS
 
         internal void AddTerm(Term term)
         {
-            if (_items.Count != _separator.Count)
-            {
-                throw new NotSupportedException("Must call AddTerm AddSeparator in that order");
+            if (_items.Count == _separator.Count) {
+                _items.Add (term);
             }
-
-            _items.Add(term);
+            else
+            {
+                throw new NotSupportedException ("Must call AddTerm AddSeparator in that order");
+            }
         }
 
-        internal void AddSeparator(GrammarSegment termSepertor)
+        internal void AddSeparator(GrammarSegment termSeperator)
         {
-            if (_items.Count != _separator.Count + 1)
+            if (_items.Count == _separator.Count + 1)
             {
-                throw new NotSupportedException("Must call AddTerm AddSeparator in that order");
+                _separator.Add (termSeperator);
+            }
+            else
+            {
+                throw new NotSupportedException ("Must call AddTerm AddSeparator in that order");
             }
 
-            _separator.Add(termSepertor);
         }
 
         public int Length

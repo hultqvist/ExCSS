@@ -479,8 +479,9 @@ namespace ExCSS
                     break;
             }
 
-            ParseSingleValueHexColor(_buffer.ToString());
             SetParsingContext(ParsingContext.InSingleValue);
+            ParseSingleValueHexColor(_buffer.ToString());
+            SetParsingContext(_parsingContextBeforeHex);
             return ParseSingleValue(token);
         }
 
@@ -522,8 +523,9 @@ namespace ExCSS
                     SetParsingContext(ParsingContext.ValueImportant);
                     return true;
 
-                case Specification.Hash:
-                    _buffer = new StringBuilder();
+            case Specification.Hash:
+                    _buffer = new StringBuilder ();
+                    _parsingContextBeforeHex = _parsingContext;
                     SetParsingContext(ParsingContext.InHexValue);
                     return true;
 

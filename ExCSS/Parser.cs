@@ -24,6 +24,7 @@ namespace ExCSS
         private Stack<RuleSet> _activeRuleSets;
         private StringBuilder _buffer;
         private ParsingContext _parsingContext;
+        private ParsingContext _parsingContextBeforeHex;
 
         public StyleSheet Parse(string css)
         {
