@@ -30,6 +30,14 @@ namespace ExCSS.Tests
             Parser p = new Parser ();
             p.Parse (css);
         }
+
+        [Test]
+        public void TestLocalCSS ()
+        {
+            string css = @"html{background:-moz-linear-gradient(top, #7d5d3b 5%, #634b30 100%);}";
+            Parser p = new Parser ();
+            p.Parse (css);
+        }
     }
 }
 
